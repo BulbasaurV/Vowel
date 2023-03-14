@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+// Function to determine whether a character is a vowel
+bool isVowel(char c) {
+    if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+        c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
+        return true;
+    }
+    return false;
+}
+
+
+// Function to remove all the vowels from a string
+string removeVowels(string str) {
+    for (int i = 0; i < str.length(); i++) {
+        if (isVowel(str[i])) {
+            str.erase(i, 1);
+            i--; // Decrement i to check the next character
+        }
+    }
+    return str;
+}
+
+
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);
+    str = removeVowels(str);
+    cout << "String after removing vowels: " << str << endl;
+    return 0;
+}
